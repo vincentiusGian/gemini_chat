@@ -24,7 +24,7 @@ const {messages, input, handleInputChange, handleSubmit, isLoading, stop} = useC
             <Markdown text={m.content}/>
             {m.role === 'user' ? <User2 className="absolute top-2 -left-10 border rounded-full p-1 shadow-lg"/> : 
             <Bot className={`absolute top-2 -left-10 border rounded-full p-1 shadow-lg ${
-              isLoading && index === messages.length-1 ? 'animate-bounce' : ""
+              isLoading && index-1 === messages.length-1 ? 'animate-bounce' : ""
             }`}/>}
           </div>
         })}
@@ -41,7 +41,7 @@ const {messages, input, handleInputChange, handleSubmit, isLoading, stop} = useC
       })
     }}
     className="w-full flex flex-row gap-2 items-center h-full">
-      <input value={input} onChange={handleInputChange} type="text" placeholder={isLoading ? "Replying . . ." : "Ask Vin . . ."} disabled={isLoading} value={input} 
+      <input onChange={handleInputChange} type="text" placeholder={isLoading ? "Replying . . ." : "Ask Vin . . ."} disabled={isLoading} value={input} 
       className="border-b border-dashed outline-none w-full px-4 py-2 text-right focus:placeholder-transparent disabled:bg-transparent"/>
       <button type="submit" className="rounded-full shadow-md border flex flex-row">
         {isLoading ? <Loader2 onClick={stop} className="rounded-full shadow-md border flex flex-row animate-spin"/> : <Send className="p-3 h-10 w-10 stroke-stone-500"/>}
