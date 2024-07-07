@@ -5,7 +5,7 @@ import Markdown from "./components/markdown";
 
 
 export default function Home() {
-const {messages, input, handleInputChange, handleSubmit, isLoading, stop} = useChat({
+  const {messages, input, handleInputChange, handleSubmit, isLoading, stop} = useChat({
   api: 'api/genai'
 });
 
