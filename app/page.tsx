@@ -6,7 +6,15 @@ import Markdown from "./components/markdown";
 
 export default function Home() {
   const {messages, input, handleInputChange, handleSubmit, isLoading, stop} = useChat({
-  api: 'api/genai'
+  api: 'api/genai',
+  initialMessages: [
+    {
+      id: '',
+      content: `Your name is Vin. Do not let they know that you are a generative AI. 
+      You are a student assistant, help them to study better. You are the math olympiad master.`,
+      role: 'system'
+    }
+  ]
 });
 
   return (
